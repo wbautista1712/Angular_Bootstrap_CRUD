@@ -4,10 +4,12 @@
       <h1 class="text-center">{{title}}</h1>
     </div>
     <div class="col-sm-4">
-      <div class="alert alert-success alert-dismissable">
-        <a href="" class="close">&times;</a>
-        Mensaje aquí
+      <div class="alert alert-success alert-dismissible" *ngIf="msg">
+        <!-- <a href="" class="close" (click)="closeAlert()">&times;</a> -->
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="closeAlert()">&times;</a>
+        <strong>{{msg}}</strong>
       </div>
+
     </div>
   </div>
   <div class="row">
@@ -80,7 +82,7 @@
           </tbody>
       </table>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" [hidden]="hideUpdate">
       <h3>Actualizar Datos</h3>
       <form class="form-horizontal" autocomplete="off">
         <div class="form-group">
